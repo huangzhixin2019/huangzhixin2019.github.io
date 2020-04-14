@@ -6,17 +6,17 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Hexo</title>
+  <title>Star的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
+<meta property="og:title" content="Star的博客">
 <meta property="og:url" content="http://yoursite.com/index.html">
-<meta property="og:site_name" content="Hexo">
+<meta property="og:site_name" content="Star的博客">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:author" content="Star">
 <meta name="twitter:card" content="summary">
   
-    <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
+    <link rel="alternative" href="/atom.xml" title="Star的博客" type="application/atom+xml">
   
   
     <link rel="icon" href="/assets/img/avatar.jpg">
@@ -151,6 +151,128 @@
           </div>
           <div id="js-content" class="content-ll">
             
+  
+    <article id="post-搭建自己的博客" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/04/14/%E6%90%AD%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84%E5%8D%9A%E5%AE%A2/">使用Hexo搭建自己的博客</a>
+    </h1>
+  
+
+        
+        <a href="/2020/04/14/%E6%90%AD%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84%E5%8D%9A%E5%AE%A2/" class="archive-article-date">
+  	<time datetime="2020-04-14T09:10:53.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-14</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="使用Hexo搭建自己的博客"><a href="#使用Hexo搭建自己的博客" class="headerlink" title="使用Hexo搭建自己的博客"></a>使用Hexo搭建自己的博客</h2><h4 id="一、准备工作"><a href="#一、准备工作" class="headerlink" title="一、准备工作"></a>一、准备工作</h4><h6 id="正所谓磨刀不误砍菜工，事先做好准备工作，对于我们快速的完成博客的搭建至关重要。"><a href="#正所谓磨刀不误砍菜工，事先做好准备工作，对于我们快速的完成博客的搭建至关重要。" class="headerlink" title="正所谓磨刀不误砍菜工，事先做好准备工作，对于我们快速的完成博客的搭建至关重要。"></a>正所谓磨刀不误砍菜工，事先做好准备工作，对于我们快速的完成博客的搭建至关重要。</h6><h5 id="1-1-安装git-以及node-js"><a href="#1-1-安装git-以及node-js" class="headerlink" title="1.1 安装git,以及node.js"></a>1.1 安装git,以及node.js</h5><p>[git][<a href="https://git-scm.com/download]" target="_blank" rel="noopener">https://git-scm.com/download]</a></p>
+<p>[node.js][<a href="https://nodejs.org/en/]" target="_blank" rel="noopener">https://nodejs.org/en/]</a></p>
+<h5 id="1-2-创建Github仓库"><a href="#1-2-创建Github仓库" class="headerlink" title="1.2 创建Github仓库"></a>1.2 创建Github仓库</h5><p>1.打开<a href="https://github.com/" target="_blank" rel="noopener">github</a>并登录（没有账号就注册）</p>
+<p>2.选中Repositories栏，然后点击右侧的New按钮创建</p>
+<p>3.新建一个名为 你的用户名.github.io 的仓库</p>
+<h5 id="1-3-配置SSH-key"><a href="#1-3-配置SSH-key" class="headerlink" title="1.3 配置SSH key"></a>1.3 配置SSH key</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.name &quot;xxx&quot; &#x2F;&#x2F; 你的github用户名，非昵称</span><br><span class="line">git config --global user.email  &quot;xxx@qq.com&quot; &#x2F;&#x2F; 填写你的github注册邮箱</span><br><span class="line"></span><br><span class="line">ssh-keygen -t rsa -C &quot;你的邮件地址&quot;</span><br></pre></td></tr></table></figure>
+
+<p>1.然后连续3次回车，最终会生成一个文件在用户目录下，打开用户目录，找到.ssh\id_rsa.pub文件，用记事本打开并复制里面的内容<br>2.打开你的<a href="https://github.com/" target="_blank" rel="noopener">github</a>主页，进入个人设置 -&gt; SSH and GPG keys -&gt; New SSH key：<br>3.将刚复制的内容粘贴到key那里，title随便填，最后保存。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh -T git@github.com &#x2F;&#x2F; 注意邮箱地址不用改</span><br></pre></td></tr></table></figure>
+
+<p>如果提示Are you sure you want to continue connecting (yes/no)?，输入yes，然后会看到：<br>Hi xxx! You’ve successfully authenticated, but GitHub does not provide shell access.<br>看到这个信息说明SSH已配置成功！</p>
+<hr>
+<h4 id="二、进入主线任务-–-砍柴（全局安装Hexo）"><a href="#二、进入主线任务-–-砍柴（全局安装Hexo）" class="headerlink" title="二、进入主线任务 – 砍柴（全局安装Hexo）"></a>二、进入主线任务 – 砍柴（全局安装Hexo）</h4><h5 id="2-1-简介"><a href="#2-1-简介" class="headerlink" title="2.1 简介"></a>2.1 简介</h5><p>Hexo是一个简单、快速、强大的基于 Github Pages 的博客发布工具，支持Markdown格式，有众多优秀插件和主题。</p>
+<hr>
+<h5 id="2-2-全局安装Hexo"><a href="#2-2-全局安装Hexo" class="headerlink" title="2.2 全局安装Hexo"></a>2.2 全局安装Hexo</h5><p>使用下载好的node.js自带的包管理工具npm全局下载</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g hexo</span><br></pre></td></tr></table></figure>
+
+
+
+<h5 id="2-3-初始化项目并运行"><a href="#2-3-初始化项目并运行" class="headerlink" title="2.3 初始化项目并运行"></a>2.3 初始化项目并运行</h5><p>安装好我们的搭建工具–Hexo ，找一个自己喜欢的位置，构建一个hexo项目。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">hexo init</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 本地运行</span><br><span class="line">hexo s</span><br></pre></td></tr></table></figure>
+
+
+
+<h5 id="2-4-更换主题皮肤"><a href="#2-4-更换主题皮肤" class="headerlink" title="2.4 更换主题皮肤"></a>2.4 更换主题皮肤</h5><p>正常情况下，在我们没修改访问地址的时候，直接访问localhost：4000 就可以看到我们的博客。</p>
+<p>默认版本的hexo博客其实并不养眼，推荐一下我使用的主题皮肤。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"># 在根目录的themes文件下克隆主题</span><br><span class="line">git clone https:&#x2F;&#x2F;github.com&#x2F;litten&#x2F;hexo-theme-yilia yilia</span><br><span class="line"></span><br><span class="line"># 修改根目录下的文件 _config.yml 配置</span><br><span class="line">theme: yilia</span><br></pre></td></tr></table></figure>
+
+
+
+<h5 id="2-5-上传到github"><a href="#2-5-上传到github" class="headerlink" title="2.5 上传到github"></a>2.5 上传到github</h5><p>配置完我们的博客，当然是为了展示给别人看，虽然暂时还没什么内容，可能未来也不会有……但是既然写了还是放上去吧。</p>
+<p>首先，配置一下我们的根目录的<strong>_congif.yml</strong>文件找到<code>deloy</code>字段并填写完整，复制黏贴就完事。但是抄作业，不要完整的抄，容易被老师看出来。</p>
+<blockquote>
+<p>tip：注意一下repo是填自己远程仓库的地址，别抄的过分了哈。</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Deployment</span></span><br><span class="line"><span class="comment">## Docs: https://hexo.io/docs/deployment.html</span></span><br><span class="line">deploy:</span><br><span class="line">  <span class="built_in">type</span>: git</span><br><span class="line">  repo: https://github.com/huangzhixin2019/huangzhixin2019.github.io.git</span><br><span class="line">  branch: master</span><br></pre></td></tr></table></figure>
+
+<p>另外上传到github我们还需要一个工具—- 将辆卡车把砍好的柴送回家里去<code>hexo-deployer-git</code></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
+
+<p>可以了，通知一下让他出发好吧。另外多余的东西我们需要用<code>clean</code>先清除一下再<code>deploy</code>上传。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo clean</span><br><span class="line"></span><br><span class="line">hexo deploy</span><br></pre></td></tr></table></figure>
+
+<p>大功告成，没告成的就算了。先访问一下看看。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">浏览器访问：https:<span class="comment">//huangzhixin2019.github.io/ 即可看到效果。</span></span><br></pre></td></tr></table></figure>
+
+
+
+<p>至此，我们的博客就已经搭建好了，可以把地址发出去装一哈，当然是给小白或者那些不明觉厉的人看。</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">十分钟搞定他好吧，五分钟也太短了。</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/04/14/%E6%90%AD%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84%E5%8D%9A%E5%AE%A2/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
   
     <article id="post-hello-world" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
@@ -318,6 +440,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
             <input type="checkbox" q-on="click:toggleTag(e)" q-attr="checked:showTags">
           </label>
           <ul class="article-tag-list" q-show="showTags">
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">十分钟搞定他好吧，五分钟也太短了。</a>
+              </li>
             
             <div class="clearfix"></div>
           </ul>
@@ -473,5 +599,5 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
 
 </div>
   </div>
-</body>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/01/assets/haru01.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true},"react":{"opacity":0.7},"log":false});</script></body>
 </html>
